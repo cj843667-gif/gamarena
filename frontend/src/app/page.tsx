@@ -2,7 +2,7 @@
 
 import { Suspense } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { useSearchParams } from "next/navigation";
+import { useSearchParams, useRouter, usePathname } from "next/navigation";
 import { gamesApi } from "@/lib/api";
 import GameGrid from "@/components/games/GameGrid";
 import GameFilters from "@/components/games/GameFilters";
@@ -92,9 +92,10 @@ function HomePageContent() {
   );
 }
 
+
 function Pagination({ currentPage, totalPages, searchParams }: any) {
-  const router = typeof window !== 'undefined' ? require('next/navigation').useRouter() : null;
-  const pathname = typeof window !== 'undefined' ? require('next/navigation').usePathname() : '';
+  const router = useRouter();
+  const pathname = usePathname();
 
   const handlePageChange = (newPage: number) => {
     const params = new URLSearchParams(searchParams);
