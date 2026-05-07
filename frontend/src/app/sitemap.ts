@@ -2,9 +2,9 @@ import { MetadataRoute } from 'next';
 import { gamesApi } from '@/lib/api';
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://gamxcloud.xyz';
+  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://aarifalam.life';
 
-  // Since GamxCloud uses slugs for categories and games, 
+  // Since GamArena uses slugs for categories and games, 
   // we would fetch those from the API here in a real scenario.duction app, you might want to paginate this or pull from a separate endpoint
   // Implementation of a 5-second timeout to prevent build hangs
   let gameEntries: MetadataRoute.Sitemap = [];

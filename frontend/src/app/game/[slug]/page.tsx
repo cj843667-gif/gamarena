@@ -54,7 +54,7 @@ export default function GameDetailPage() {
   const handleShare = () => {
     if (navigator.share) {
       navigator.share({
-        title: `${game.title} on GamxCloud`,
+        title: `${game.title} on GamArena`,
         text: `Play ${game.title} - Free HTML5 Game`,
         url: window.location.href,
       });
@@ -211,11 +211,11 @@ export default function GameDetailPage() {
             "name": game.title,
             "description": game.description,
             "genre": game.category,
-            "url": `https://gamxcloud.xyz/game/${game.slug}`,
+            "url": `https://aarifalam.life/game/${game.slug}`,
             "image": game.thumbnail,
             "author": {
               "@type": "Organization",
-              "name": "GamxCloud Authors"
+              "name": "GamArena Authors"
             },
             "aggregateRating": {
               "@type": "AggregateRating",

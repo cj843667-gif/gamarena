@@ -10,7 +10,6 @@ const nextConfig = {
   },
   // Ensure we don't use experimental features that crash builds
   typescript: { ignoreBuildErrors: true },
-  eslint: { ignoreDuringBuilds: true },
 };
 
 module.exports = nextConfig;

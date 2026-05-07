@@ -1,6 +1,6 @@
-# 🎮 h5games space — Premium HTML5 Games Portal
+# 🎮 GamArena — Premium HTML5 Games Portal
 
-h5games space is a high-performance, AdSense-ready HTML5 games aggregator portal built with Next.js 14 and Express. It automatically pulls open-source games from GitHub, categorizes them, and provides a polished interface for players to enjoy 1000+ titles with no login or downloads required.
+GamArena is a high-performance, AdSense-ready HTML5 games aggregator portal built with Next.js 14 and Express. It automatically pulls open-source games from GitHub, categorizes them, and provides a polished interface for players to enjoy 1000+ titles with no login or downloads required.
 
 ## 🚀 Speed Features
 - **Frontend**: Next.js 14 (App Router), TypeScript, Tailwind CSS, Framer Motion.

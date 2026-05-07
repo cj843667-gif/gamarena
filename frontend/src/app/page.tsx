@@ -68,7 +68,7 @@ function HomePageContent() {
                <div className="bg-black/5 dark:bg-white/5 rounded-[2rem] p-10 border-2 border-dashed border-black/10 dark:border-white/10 text-center">
                   <h2 className="text-2xl md:text-4xl font-black mb-4 uppercase italic text-black dark:text-white">The Ultimate Free Gaming Portal</h2>
                   <p className="text-base md:text-lg font-bold text-black/60 dark:text-white/60 max-w-4xl mx-auto leading-relaxed">
-                    Play <span className="text-black dark:text-white underline font-black">free online gaming no login</span> on GamxCloud. 
+                    Play <span className="text-black dark:text-white underline font-black">free online gaming no login</span> on GamArena. 
                     Our optimized platform delivers high-performance HTML5 games directly to your browser. 
                     No downloads, no logins, just pure fun.
                   </p>
@@ -150,7 +150,7 @@ function Pagination({ currentPage, totalPages, searchParams }: any) {
 
 export default function HomePage() { 
   return ( 
-    <Suspense fallback={<div className='min-h-screen flex items-center justify-center text-black/20 dark:text-white/20 italic font-black uppercase tracking-tighter'>Loading GamxCloud...</div>}>
+    <Suspense fallback={<div className='min-h-screen flex items-center justify-center text-black/20 dark:text-white/20 italic font-black uppercase tracking-tighter'>Loading GamArena...</div>}>
       <HomePageContent />
     </Suspense> 
   ); 

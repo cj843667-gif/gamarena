@@ -51,7 +51,7 @@ export default function Header() {
             <Gamepad2 className="text-black" size={18} />
           </div>
           <span className="text-lg font-black tracking-tighter text-black dark:text-white uppercase">
-            GAMX<span className="text-accent">CLOUD</span>
+            GAM<span className="text-accent">ARENA</span>
           </span>
         </Link>
 

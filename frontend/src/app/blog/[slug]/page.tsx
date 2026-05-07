@@ -71,10 +71,10 @@ export default function BlogPostPage() {
           <div className="flex flex-wrap items-center gap-8 text-xs font-bold text-gray-300 uppercase tracking-widest border-t border-white/10 pt-8 mt-4">
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 rounded-full border-2 border-white/20 shadow-xl overflow-hidden bg-primary-lighter">
-                {post.author.name.toLowerCase() === 'GamxCloud team' ? (
+                {post.author.name.toLowerCase() === 'gamarena team' ? (
                   <Image 
                     src="/assets/team/h5games_team.png" 
-                    alt="GamxCloud Team" 
+                    alt="GamArena Team" 
                     width={48} 
                     height={48} 
                     className="object-cover w-full h-full"

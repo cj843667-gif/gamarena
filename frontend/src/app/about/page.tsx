@@ -2,12 +2,12 @@ export default function AboutPage() {
   return (
     <div className="container mx-auto px-4 py-20 max-w-4xl">
       <h1 className="text-4xl md:text-6xl font-black text-white italic uppercase mb-12 text-center">
-        About <span className="text-accent underline decoration-white/10">GamxCloud</span>
+        About <span className="text-accent underline decoration-white/10">GamArena</span>
       </h1>
       
       <div className="prose prose-invert max-w-none text-gray-400 space-y-8 text-lg font-medium leading-relaxed">
         <p>
-          GamxCloud is the ultimate premium gateway to the world of open-source HTML5 games. We believe that the best gaming experiences should be accessible to everyone, everywhere, without the barriers of downloads, logins, or high-end hardware.
+          GamArena is the ultimate premium gateway to the world of open-source HTML5 games. We believe that the best gaming experiences should be accessible to everyone, everywhere, without the barriers of downloads, logins, or high-end hardware.
         </p>
         
         <div className="bg-primary-light p-8 rounded-3xl border border-white/5 my-12">
@@ -21,7 +21,7 @@ export default function AboutPage() {
           <div>
             <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight">Open Source First</h3>
             <p className="text-sm">
-              Every game on GamxCloud is sourced from open-source repositories (primarily GitHub). We respect licenses and provide direct links back to the source code for every title.
+              Every game on GamArena is sourced from open-source repositories (primarily GitHub). We respect licenses and provide direct links back to the source code for every title.
             </p>
           </div>
           <div>
@@ -33,7 +33,7 @@ export default function AboutPage() {
         </div>
         
         <p className="pt-12 text-center">
-          GamxCloud is a product of passion, built using Next.js 14 and powered by the massive community of indie developers on GitHub.
+          GamArena is a product of passion, built using Next.js 14 and powered by the massive community of indie developers on GitHub.
         </p>
       </div>
     </div>

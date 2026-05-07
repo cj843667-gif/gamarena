@@ -1,7 +1,7 @@
 {
-  "name": "gamxcloud-backend",
+  "name": "gamarena-backend",
   "version": "1.0.0",
-  "description": "GamxCloud HTML5 Games Portal - Backend API",
+  "description": "GamArena HTML5 Games Portal - Backend API",
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",

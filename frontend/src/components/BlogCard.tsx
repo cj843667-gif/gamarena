@@ -58,22 +58,18 @@ export default function BlogCard({ post, featured }: BlogCardProps) {
         <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-6">
           <div className="flex items-center gap-3">
             <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-primary-lighter flex items-center justify-center">
-              {post.author.name.toLowerCase() === 'GamxCloud team' ? (
-                <Image 
-                  src="/assets/team/h5games_team.png" 
-                  alt="GamxCloud Team" 
-                  width={32} 
-                  height={32} 
-                  className="object-cover w-full h-full"
+              {post.author.name.toLowerCase() === 'gamarena team' ? (
+                <Image
+                  src="/images/logo-icon.png"
+                  alt="GamArena Team" 
+                  width={24}
+                  height={24}
+                  className="rounded-full"
                 />
               ) : (
-                <Image 
-                  src={post.author.avatar} 
-                  alt={post.author.name} 
-                  width={32} 
-                  height={32} 
-                  className="object-cover w-full h-full"
-                />
+                <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-[10px] font-bold text-black uppercase">
+                  {post.author.name.charAt(0)}
+                </div>
               )}
             </div>
             <span className="text-xs font-black text-white uppercase italic tracking-tighter">{post.author.name}</span>
