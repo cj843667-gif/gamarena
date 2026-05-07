@@ -11,7 +11,8 @@
     "frontend:build": "npm run build --workspace=frontend",
     "frontend:start": "npm run start --workspace=frontend",
     "backend:dev": "npm run dev --workspace=backend",
-    "backend:start": "npm run start --workspace=backend"
+    "backend:start": "npm run start --workspace=backend",
+    "start": "npm run backend:start"
   },
   "dependencies": {
     "next": "15.1.11"
