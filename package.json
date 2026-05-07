@@ -14,6 +14,6 @@
     "backend:start": "npm run start --workspace=backend"
   },
   "dependencies": {
-    "next": "15.1.7"
+    "next": "15.1.11"
   }
 }
