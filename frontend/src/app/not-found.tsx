@@ -10,7 +10,7 @@ export default function NotFound() {
         Game <span className="text-accent">Over</span>
       </h2>
       <p className="text-gray-400 font-bold max-w-md mb-10 text-lg">
-        The page you are looking for has been moved or doesn't exist in our arena.
+        The page you are looking for has been moved or doesn&apos;t exist in our arena.
       </p>
       <Link 
         href="/" 

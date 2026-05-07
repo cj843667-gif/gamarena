@@ -21,7 +21,7 @@ export default function TermsOfService() {
           <ul className="list-disc pl-6 mt-4 space-y-2">
             <li>Interfere with the operation of the site or games.</li>
             <li>Use automated scripts to access or extract data from the site.</li>
-            <li>Modify or redistribute the games unless permitted by the specific game's open-source license.</li>
+            <li>Modify or redistribute the games unless permitted by the specific game&apos;s open-source license.</li>
           </ul>
         </section>
 

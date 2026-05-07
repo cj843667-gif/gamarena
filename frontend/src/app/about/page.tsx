@@ -27,7 +27,7 @@ export default function AboutPage() {
           <div>
             <h3 className="text-xl font-bold text-white mb-4 uppercase italic tracking-tight">No Strings Attached</h3>
             <p className="text-sm">
-              We don't collect your data, we don't require accounts, and we certainly don't charge for play. Just visit, click, and play.
+              We don&apos;t collect your data, we don&apos;t require accounts, and we certainly don&apos;t charge for play. Just visit, click, and play.
             </p>
           </div>
         </div>

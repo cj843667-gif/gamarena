@@ -79,7 +79,7 @@ function SearchPageContent() {
               <XCircle size={40} />
            </div>
            <h3 className="text-2xl font-bold text-white uppercase italic mb-2">No Results Found</h3>
-           <p className="text-gray-500 max-w-sm mb-10">We couldn't find any games matching your request. Try using broader keywords.</p>
+           <p className="text-gray-500 max-w-sm mb-10">We couldn&apos;t find any games matching your request. Try using broader keywords.</p>
            
            <div className="bg-primary/50 p-8 rounded-2xl border border-white/5 max-w-md w-full">
               <div className="flex items-center gap-2 text-accent mb-4 font-bold text-sm uppercase tracking-widest justify-center">

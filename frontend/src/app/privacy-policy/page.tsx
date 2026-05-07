@@ -21,7 +21,7 @@ export default function PrivacyPolicy() {
             </p>
             <ul className="list-disc pl-6 space-y-2 text-sm italic">
               <li>Google, as a third-party vendor, uses cookies to serve ads on GamArena.</li>
-              <li>Google's use of the DART cookie enables it to serve ads to our users based on their visit to our sites and other sites on the Internet.</li>
+              <li>Google&apos;s use of the DART cookie enables it to serve ads to our users based on their visit to our sites and other sites on the Internet.</li>
               <li>Users may opt out of the use of the DART cookie by visiting the Google ad and content network privacy policy.</li>
             </ul>
           </div>
