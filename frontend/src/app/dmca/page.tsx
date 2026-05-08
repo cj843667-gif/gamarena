@@ -1,3 +1,5 @@
+export const dynamic = 'force-dynamic';
+
 export default function DMCAPolicypage() {
   return (
     <div className="container mx-auto px-4 py-20 max-w-4xl text-gray-400 leading-relaxed">

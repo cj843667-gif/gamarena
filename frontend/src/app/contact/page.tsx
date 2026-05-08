@@ -1,5 +1,8 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
+
 import React, { useState } from "react";
 import { Check, Mail, MessageSquare } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
