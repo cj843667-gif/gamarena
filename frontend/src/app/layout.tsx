@@ -27,7 +27,7 @@ export default function RootLayout({
         <Script
           id="adsense-init"
           strategy="afterInteractive"
-          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2724749520266558"
+          src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8802060779563003"
           crossOrigin="anonymous"
         />
         <Script id="adsense-config" strategy="afterInteractive">

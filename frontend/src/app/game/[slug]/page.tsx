@@ -16,7 +16,7 @@ import Badge from "@/components/ui/Badge";
 import AdSlot from "@/components/ads/AdSlot";
 import { Star, Eye, Play, Code2, Share2, ChevronRight, LayoutGrid, Calendar, Quote } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import Newsletter from "@/components/Newsletter";
 
 export default function GameDetailPage() {

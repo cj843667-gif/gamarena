@@ -12,7 +12,7 @@ import remarkGfm from "remark-gfm";
 import Image from "next/image";
 import { Calendar, Clock, User, ArrowLeft, Share2, Bookmark } from "lucide-react";
 import Link from "next/link";
-import { motion } from "framer-motion";
+
 import Badge from "@/components/ui/Badge";
 import { Loader2, Gamepad2 } from "lucide-react";
 import Newsletter from "@/components/Newsletter";

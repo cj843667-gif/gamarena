@@ -9,7 +9,7 @@ import BlogCard from "@/components/BlogCard";
 import { BlogResponse } from "@/types";
 import { Loader2, Search, Filter } from "lucide-react";
 import { useState } from "react";
-import { motion } from "framer-motion";
+
 
 export default function BlogListingPage() {
   const [page, setPage] = useState(1);
@@ -40,13 +40,9 @@ export default function BlogListingPage() {
         <div className="absolute inset-0 bg-gradient-to-t from-black via-transparent to-transparent" />
         
         <div className="container mx-auto px-4 relative z-10 text-center">
-          <motion.div
-            initial={{ opacity: 0, scale: 0.9 }}
-            animate={{ opacity: 1, scale: 1 }}
-            className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 border border-accent/20 text-accent text-xs font-black uppercase italic mb-8"
-          >
+          <div className="card-animate inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-accent/20 border border-accent/20 text-accent text-xs font-black uppercase italic mb-8">
             GamArena blog
-          </motion.div>
+          </div>
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-black text-white italic uppercase tracking-tighter mb-8 max-w-5xl mx-auto leading-none">
             Level up your <span className="text-accent underline decoration-white/10">knowledge</span>
           </h1>

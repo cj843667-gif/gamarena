@@ -1,6 +1,5 @@
 import { Game } from "@/types";
 import GameCard from "./GameCard";
-import { motion } from "framer-motion";
 import AdSlot from "../ads/AdSlot";
 
 interface GameGridProps {
@@ -11,9 +10,9 @@ interface GameGridProps {
 export default function GameGrid({ games, isLoading }: GameGridProps) {
   if (isLoading) {
     return (
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-        {[...Array(8)].map((_, i) => (
-          <div key={i} className="bg-primary-light h-64 rounded-xl animate-pulse border border-white/5" />
+      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4">
+        {[...Array(12)].map((_, i) => (
+          <div key={i} className="skeleton aspect-[4/3] rounded-xl" />
         ))}
       </div>
     );
@@ -21,37 +20,27 @@ export default function GameGrid({ games, isLoading }: GameGridProps) {
 
   if (games.length === 0) {
     return (
-      <div className="text-center py-20 bg-primary-light/50 rounded-2xl border border-white/5">
-        <h3 className="text-xl font-bold text-gray-400">No games found</h3>
-        <p className="text-gray-600 mt-2">Try adjusting your filters or search query.</p>
+      <div className="text-center py-20 rounded-2xl border border-[var(--border)]" style={{ background: 'var(--bg-card)' }}>
+        <h3 className="text-xl font-bold" style={{ color: 'var(--text-secondary)' }}>No games found</h3>
+        <p className="mt-2" style={{ color: 'var(--text-muted)' }}>Try adjusting your filters or search query.</p>
       </div>
     );
   }
 
   return (
-    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-render">
       {games.map((game, index) => (
         <div key={game._id} className="contents">
-          {/* Insert Native Ad every 8 games */}
-          {index > 0 && index % 8 === 0 && (
-            <motion.div
-              initial={{ opacity: 0, scale: 0.95 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
-              className="sm:col-span-1"
-            >
+          {/* Insert ad every 12 games */}
+          {index > 0 && index % 12 === 0 && (
+            <div className="card-animate col-span-1">
               <AdSlot position="native" className="h-full" />
-            </motion.div>
+            </div>
           )}
           
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.4, delay: (index % 8) * 0.05 }}
-            viewport={{ once: true }}
-          >
+          <div className="card-animate">
             <GameCard game={game} />
-          </motion.div>
+          </div>
         </div>
       ))}
     </div>

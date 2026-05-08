@@ -1,9 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
 import { BlogPost } from "@/types";
-import { Calendar, Clock, ChevronRight } from "lucide-react";
-import Badge from "./ui/Badge";
-import { motion } from "framer-motion";
 
 interface BlogCardProps {
   post: BlogPost;
@@ -12,74 +9,55 @@ interface BlogCardProps {
 
 export default function BlogCard({ post, featured }: BlogCardProps) {
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      className={`group bg-primary-light border border-white/5 rounded-[2rem] overflow-hidden flex flex-col h-full hover:border-accent/30 transition-all duration-300 ${featured ? 'md:flex-row md:col-span-2' : ''}`}
+    <div
+      className={`card-animate group rounded-xl overflow-hidden flex flex-col h-full transition-all duration-200 ${featured ? 'md:flex-row md:col-span-2' : ''}`}
+      style={{ background: 'var(--bg-card)', border: '1px solid var(--border)' }}
     >
-      <Link href={`/blog/${post.slug}`} className={`relative overflow-hidden block ${featured ? 'md:w-1/2 min-h-[300px]' : 'aspect-video'}`}>
+      <Link href={`/blog/${post.slug}`} className={`relative overflow-hidden block ${featured ? 'md:w-1/2 min-h-[250px]' : 'aspect-video'}`}>
         <Image
           src={post.coverImage}
           alt={post.title}
           fill
-          className="object-cover transition-transform duration-700 group-hover:scale-105"
+          className="object-cover transition-transform duration-300 group-hover:scale-105"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+          loading="lazy"
         />
-        <div className="absolute top-4 left-4 z-10">
-          <Badge variant="accent" className="bg-accent text-white border-none shadow-lg">
+        <div className="absolute top-3 left-3 z-10">
+          <span className="bg-[var(--accent)] text-black text-[10px] font-bold px-2 py-1 rounded-md uppercase">
             {post.category}
-          </Badge>
+          </span>
         </div>
       </Link>
 
-      <div className={`p-8 flex flex-col flex-grow ${featured ? 'md:w-1/2 justify-center' : ''}`}>
-        <div className="flex items-center gap-4 text-xs font-bold text-gray-500 uppercase tracking-widest mb-4">
-          <span className="flex items-center gap-1.5 font-mono">
-            <Calendar size={14} className="text-accent" />
-            {new Date(post.publishedAt).toLocaleDateString()}
-          </span>
-          <span className="flex items-center gap-1.5 font-mono">
-            <Clock size={14} className="text-accent" />
-            {post.readTime}
-          </span>
+      <div className={`p-6 flex flex-col flex-grow ${featured ? 'md:w-1/2 justify-center' : ''}`}>
+        <div className="flex items-center gap-3 text-[11px] font-bold uppercase tracking-wider mb-3" style={{ color: 'var(--text-muted)' }}>
+          <span>📅 {new Date(post.publishedAt).toLocaleDateString()}</span>
+          <span>⏱ {post.readTime}</span>
         </div>
 
         <Link href={`/blog/${post.slug}`}>
-          <h3 className={`font-black text-white italic uppercase mb-4 group-hover:text-accent transition-colors leading-tight ${featured ? 'text-3xl md:text-4xl' : 'text-xl'}`}>
+          <h3 className={`font-black uppercase mb-3 group-hover:text-[var(--accent)] transition-colors leading-tight ${featured ? 'text-2xl md:text-3xl' : 'text-lg'}`} style={{ color: 'var(--text-primary)' }}>
             {post.title}
           </h3>
         </Link>
 
-        <p className="text-gray-400 text-sm line-clamp-3 mb-6 font-medium leading-relaxed">
+        <p className="text-sm line-clamp-3 mb-4 leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
           {post.excerpt}
         </p>
 
-        <div className="mt-auto flex items-center justify-between border-t border-white/5 pt-6">
-          <div className="flex items-center gap-3">
-            <div className="w-8 h-8 rounded-full overflow-hidden border border-white/10 bg-primary-lighter flex items-center justify-center">
-              {post.author.name.toLowerCase() === 'gamarena team' ? (
-                <Image
-                  src="/images/logo-icon.png"
-                  alt="GamArena Team" 
-                  width={24}
-                  height={24}
-                  className="rounded-full"
-                />
-              ) : (
-                <div className="w-6 h-6 bg-accent rounded-full flex items-center justify-center text-[10px] font-bold text-black uppercase">
-                  {post.author.name.charAt(0)}
-                </div>
-              )}
+        <div className="mt-auto flex items-center justify-between border-t pt-4" style={{ borderColor: 'var(--border)' }}>
+          <div className="flex items-center gap-2">
+            <div className="w-6 h-6 bg-[var(--accent)] rounded-full flex items-center justify-center text-[10px] font-bold text-black uppercase">
+              {post.author.name.charAt(0)}
             </div>
-            <span className="text-xs font-black text-white uppercase italic tracking-tighter">{post.author.name}</span>
+            <span className="text-xs font-bold uppercase" style={{ color: 'var(--text-primary)' }}>{post.author.name}</span>
           </div>
 
-          <Link href={`/blog/${post.slug}`} className="flex items-center gap-2 text-xs font-black text-accent uppercase italic hover:translate-x-1 transition-transform">
-            READ MORE <ChevronRight size={14} />
+          <Link href={`/blog/${post.slug}`} className="text-xs font-bold text-[var(--accent)] uppercase hover:underline">
+            READ MORE →
           </Link>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }

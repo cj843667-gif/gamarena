@@ -10,7 +10,7 @@ interface AdSlotProps {
 
 export default function AdSlot({ position, className = "", sticky }: AdSlotProps) {
   const showAds = process.env.NEXT_PUBLIC_SHOW_ADS === "true";
-  const pubId = "ca-pub-2724749520266558";
+  const pubId = "ca-pub-8802060779563003";
   
   useEffect(() => {
     if (showAds) {
