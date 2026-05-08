@@ -11,7 +11,7 @@ import {
   ExternalLink,
   ShieldCheck
 } from "lucide-react";
-import Cookies from "js-cookie";
+
 
 export default function AdminSidebar() {
   const pathname = usePathname();
@@ -25,7 +25,10 @@ export default function AdminSidebar() {
   ];
 
   const handleLogout = () => {
-    Cookies.remove("token");
+    if (typeof window !== 'undefined') {
+      const Cookies = require('js-cookie');
+      Cookies.remove("token");
+    }
     router.push("/admin/login");
   };
 

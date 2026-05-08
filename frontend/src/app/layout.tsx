@@ -53,15 +53,15 @@ export default function RootLayout({
             'tb_tfa_script');
           `}
         </Script>
-        {/* <Providers> */}
+        <Providers>
           <div className="flex flex-col min-h-screen">
-            {/* <Header /> */}
+            <Header />
             <main className="flex-grow pt-24">
               {children}
             </main>
-            {/* <Footer /> */}
+            <Footer />
           </div>
-        {/* </Providers> */}
+        </Providers>
       </body>
     </html>
   );

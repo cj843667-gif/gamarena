@@ -1,5 +1,4 @@
 import axios from 'axios';
-import Cookies from 'js-cookie';
 
 const API_URL = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5000/api';
 
@@ -12,11 +11,15 @@ const api = axios.create({
   timeout: 10000, // 10s timeout
 });
 
-// Interceptor to add auth token
+// Interceptor to add auth token — only access js-cookie in the browser
 api.interceptors.request.use((config) => {
-  const token = Cookies.get('token');
-  if (token) {
-    config.headers.Authorization = `Bearer ${token}`;
+  if (typeof window !== 'undefined') {
+    // Dynamic import to avoid SSR issues
+    const Cookies = require('js-cookie');
+    const token = Cookies.get('token');
+    if (token) {
+      config.headers.Authorization = `Bearer ${token}`;
+    }
   }
   return config;
 });

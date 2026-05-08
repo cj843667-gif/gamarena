@@ -9,7 +9,7 @@ import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Button from "@/components/ui/Button";
 import { KeyRound, Mail, ShieldCheck, AlertCircle } from "lucide-react";
-import Cookies from "js-cookie";
+
 import { motion } from "framer-motion";
 
 export default function AdminLoginPage() {
@@ -26,6 +26,7 @@ export default function AdminLoginPage() {
 
     try {
       const data = await adminApi.login({ email, password });
+      const Cookies = require('js-cookie');
       Cookies.set("token", data.token, { expires: 1/3 }); // 8 hours
       router.push("/admin/dashboard");
     } catch (err: any) {
