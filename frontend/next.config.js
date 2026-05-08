@@ -14,6 +14,7 @@ const nextConfig = {
       { protocol: 'https', hostname: 'www.htmlgames.com' },
     ],
   },
+  transpilePackages: ['lucide-react'],
   // Ensure we don't use experimental features that crash builds
   typescript: { ignoreBuildErrors: true },
 };

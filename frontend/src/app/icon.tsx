@@ -1,5 +1,4 @@
 import { ImageResponse } from 'next/og'
-import { Gamepad2 } from 'lucide-react'
 
 // Image metadata
 export const size = {
