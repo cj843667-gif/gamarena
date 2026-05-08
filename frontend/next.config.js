@@ -15,6 +15,9 @@ const nextConfig = {
     ],
   },
   transpilePackages: ['lucide-react'],
+  experimental: {
+    optimizePackageImports: ['lucide-react', 'framer-motion'],
+  },
   // Ensure we don't use experimental features that crash builds
   typescript: { ignoreBuildErrors: true },
 };
