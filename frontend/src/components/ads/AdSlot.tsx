@@ -26,15 +26,15 @@ export default function AdSlot({ position, className = "", sticky }: AdSlotProps
   if (!showAds) return null;
 
   const slotIds = {
-    skyscraper_left: "3411654637",
-    skyscraper_right: "3411654637",
-    game_sidebar: "3411654637",
-    game_bottom: "3534943561",
-    native: "7531915393",
-    multiplex: "7531915393",
-    home_hero: "3534943561",
-    home_section: "7531915393",
-    list_inline: "3534943561",
+    skyscraper_left: "9213605647",
+    skyscraper_right: "9213605647",
+    game_sidebar: "9213605647",
+    game_bottom: "9213605647",
+    native: "9213605647",
+    multiplex: "9213605647",
+    home_hero: "9213605647",
+    home_section: "9213605647",
+    list_inline: "9213605647",
   };
 
   const slotId = slotIds[position];
