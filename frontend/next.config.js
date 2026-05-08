@@ -1,11 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
-  typescript: {
-    ignoreBuildErrors: true,
-  },
+  eslint: { ignoreDuringBuilds: true },
+  typescript: { ignoreBuildErrors: true },
   images: {
     remotePatterns: [
       { protocol: 'https', hostname: 'opengraph.githubassets.com' },
@@ -14,12 +10,6 @@ const nextConfig = {
       { protocol: 'https', hostname: 'www.htmlgames.com' },
     ],
   },
-  transpilePackages: ['lucide-react'],
-  experimental: {
-    optimizePackageImports: ['lucide-react', 'framer-motion'],
-  },
-  // Ensure we don't use experimental features that crash builds
-  typescript: { ignoreBuildErrors: true },
 };
 
 module.exports = nextConfig;

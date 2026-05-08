@@ -13,8 +13,5 @@
     "backend:dev": "npm run dev --workspace=backend",
     "backend:start": "npm run start --workspace=backend",
     "start": "npm run backend:start"
-  },
-  "dependencies": {
-    "next": "15.1.11"
   }
 }
