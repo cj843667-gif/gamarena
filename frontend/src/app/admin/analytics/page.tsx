@@ -1,5 +1,8 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
+
 import { useQuery } from "@tanstack/react-query";
 import { adminApi } from "@/lib/api";
 import AdminSidebar from "@/components/admin/AdminSidebar";
@@ -44,7 +47,7 @@ export default function AnalyticsPage() {
               </div>
               <div className="flex-grow flex items-end gap-2 px-4 pb-4">
                  {/* Visual Mock of Bar Chart since we don't have Recharts installed */}
-                 {data?.daily.slice(-14).map((day: any, i: number) => (
+                 {(data?.daily || []).slice(-14).map((day: any, i: number) => (
                    <div key={i} className="flex-grow bg-white/5 rounded-t-lg relative group transition-all hover:bg-accent/40" style={{ height: `${(day.views / 200) * 100}%` }}>
                       <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 bg-accent text-white text-[8px] font-black py-1 px-1.5 rounded opacity-0 group-hover:opacity-100 transition-opacity whitespace-nowrap">
                          {day.views} Views
@@ -63,7 +66,7 @@ export default function AnalyticsPage() {
                  <PieChart className="text-gray-600" size={18} />
               </div>
               <div className="flex-grow flex flex-col justify-center gap-4">
-                 {data?.categoryStats.slice(0, 5).map((cat: any, i: number) => (
+                 {(data?.categoryStats || []).slice(0, 5).map((cat: any, i: number) => (
                     <div key={i} className="space-y-1">
                        <div className="flex justify-between text-[10px] font-black uppercase tracking-[0.2em] text-gray-500">
                           <span>{cat._id}</span>
@@ -100,7 +103,7 @@ export default function AnalyticsPage() {
                   </tr>
                 </thead>
                 <tbody className="divide-y divide-white/5 font-bold">
-                  {data?.topByPlays.map((game: any, index: number) => (
+                  {(data?.topByPlays || []).map((game: any, index: number) => (
                     <tr key={index} className="group hover:bg-white/5 transition-all text-sm">
                       <td className="py-5 pl-4 text-gray-600 font-black">#{index + 1}</td>
                       <td className="py-5">

@@ -1,5 +1,8 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
+
 import { useState } from "react";
 import { useQuery, useMutation, useQueryClient } from "@tanstack/react-query";
 import { adminApi } from "@/lib/api";
@@ -109,7 +112,7 @@ export default function GamesManagerPage() {
                 <tr>
                    <td colSpan={6} className="py-20 text-center text-gray-500 italic">Exploring the vault...</td>
                 </tr>
-              ) : data?.games.map((game) => (
+              ) : (data?.games || []).map((game) => (
                 <tr key={game._id} className="group hover:bg-white/5 transition-all">
                   <td className="py-5 pl-8">
                     <div className="flex items-center gap-4">

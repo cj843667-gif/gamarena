@@ -1,5 +1,8 @@
 "use client";
 
+export const dynamic = 'force-dynamic';
+
+
 import { useQuery } from "@tanstack/react-query";
 import { adminApi } from "@/lib/api";
 import AdminSidebar from "@/components/admin/AdminSidebar";
@@ -90,7 +93,7 @@ export default function AdminDashboardPage() {
                     </tr>
                   </thead>
                   <tbody className="divide-y divide-white/5">
-                    {data?.topGames.map((game) => (
+                    {(data?.topGames || []).map((game) => (
                       <tr key={game.slug} className="group hover:bg-white/5 transition-all text-sm">
                         <td className="py-4 pl-4">
                            <div className="flex items-center gap-3">
@@ -118,7 +121,7 @@ export default function AdminDashboardPage() {
              <h3 className="text-xl font-black text-white uppercase italic tracking-tight">Caterory <span className="text-accent">Distribution</span></h3>
              
              <div className="space-y-4 flex-grow">
-                {data?.categoryBreakdown.slice(0, 8).map((cat) => (
+                {(data?.categoryBreakdown || []).slice(0, 8).map((cat) => (
                   <div key={cat._id} className="space-y-2">
                     <div className="flex justify-between text-xs font-bold uppercase tracking-widest">
                        <span className="text-gray-400">{cat._id}</span>
