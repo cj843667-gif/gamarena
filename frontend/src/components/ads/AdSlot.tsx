@@ -29,19 +29,19 @@ const AD_CONFIG = {
     style: { display: "block" } as React.CSSProperties,
     containerClass: "w-full min-h-[250px]",
   },
-  // Skyscraper Left (300x600)
+  // Skyscraper 1 (responsive)
   skyscraper_left: {
-    slot: "3338534847",
-    format: undefined,
-    style: { display: "inline-block", width: "300px", height: "600px" } as React.CSSProperties,
-    containerClass: "w-[300px] min-h-[600px]",
+    slot: "9908646778",
+    format: "auto",
+    style: { display: "block" } as React.CSSProperties,
+    containerClass: "w-full min-h-[250px]",
   },
-  // Skyscraper Right (300x600)
+  // Skyscraper 2 (responsive)
   skyscraper_right: {
-    slot: "8399289831",
-    format: undefined,
-    style: { display: "inline-block", width: "300px", height: "600px" } as React.CSSProperties,
-    containerClass: "w-[300px] min-h-[600px]",
+    slot: "9908646778",
+    format: "auto",
+    style: { display: "block" } as React.CSSProperties,
+    containerClass: "w-full min-h-[250px]",
   },
 };
 
