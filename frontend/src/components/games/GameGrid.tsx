@@ -1,6 +1,6 @@
 import { Game } from "@/types";
 import GameCard from "./GameCard";
-import AdSlot from "../ads/AdSlot";
+import BannerAd from "../ads/BannerAd";
 
 interface GameGridProps {
   games: Game[];
@@ -27,20 +27,30 @@ export default function GameGrid({ games, isLoading }: GameGridProps) {
     );
   }
 
+  // Split games into chunks of 8 (2 rows of 4) for banner ad insertion
+  const rowSize = 8;
+  const chunks: Game[][] = [];
+  for (let i = 0; i < games.length; i += rowSize) {
+    chunks.push(games.slice(i, i + rowSize));
+  }
+
   return (
-    <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-render">
-      {games.map((game, index) => (
-        <div key={game._id} className="contents">
-          {/* Insert ad every 12 games */}
-          {index > 0 && index % 12 === 0 && (
-            <div className="card-animate col-span-1">
-              <AdSlot position="native" className="h-full" />
-            </div>
-          )}
-          
-          <div className="card-animate">
-            <GameCard game={game} />
+    <div>
+      {chunks.map((chunk, chunkIndex) => (
+        <div key={chunkIndex}>
+          {/* Game cards grid */}
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 xl:grid-cols-4 gap-4 auto-render">
+            {chunk.map((game) => (
+              <div key={game._id} className="card-animate">
+                <GameCard game={game} />
+              </div>
+            ))}
           </div>
+
+          {/* Banner ad after every 2 rows (8 games), except after the last chunk */}
+          {chunkIndex < chunks.length - 1 && (
+            <BannerAd />
+          )}
         </div>
       ))}
     </div>
