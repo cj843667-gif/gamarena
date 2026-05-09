@@ -82,9 +82,11 @@ export default function GameDetailPage() {
         </div>
       </div>
 
-      <div className="max-w-[1920px] mx-auto px-4 flex flex-col xl:flex-row gap-8 justify-center items-start">
-        {/* Left Skyscraper (Desktop Only) */}
-        <AdSlot position="skyscraper_left" sticky className="mt-24" />
+      <div className="max-w-[1920px] mx-auto px-4 flex flex-col 2xl:flex-row gap-6 justify-center items-start">
+        {/* Left Skyscraper (Wide Desktop Only) */}
+        <div className="hidden 2xl:block shrink-0">
+          <AdSlot position="skyscraper_left" sticky className="mt-24" />
+        </div>
 
         {/* Main Layout Container */}
         <div className="flex-grow max-w-7xl w-full">
@@ -193,8 +195,10 @@ export default function GameDetailPage() {
           </div>
         </div>
 
-        {/* Right Skyscraper (Desktop Only) */}
-        <AdSlot position="skyscraper_right" sticky className="mt-24" />
+        {/* Right Skyscraper (Wide Desktop Only) */}
+        <div className="hidden 2xl:block shrink-0">
+          <AdSlot position="skyscraper_right" sticky className="mt-24" />
+        </div>
       </div>
 
       {/* Related Games - Full Width Grid Below */}

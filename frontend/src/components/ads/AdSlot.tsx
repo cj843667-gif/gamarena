@@ -34,14 +34,14 @@ const AD_CONFIG = {
     slot: "3338534847",
     format: undefined,
     style: { display: "inline-block", width: "300px", height: "600px" } as React.CSSProperties,
-    containerClass: "w-[300px] min-h-[600px] hidden xl:block",
+    containerClass: "w-[300px] min-h-[600px]",
   },
   // Skyscraper Right (300x600)
   skyscraper_right: {
     slot: "8399289831",
     format: undefined,
     style: { display: "inline-block", width: "300px", height: "600px" } as React.CSSProperties,
-    containerClass: "w-[300px] min-h-[600px] hidden xl:block",
+    containerClass: "w-[300px] min-h-[600px]",
   },
 };
 
