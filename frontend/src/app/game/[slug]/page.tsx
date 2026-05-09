@@ -155,6 +155,12 @@ export default function GameDetailPage() {
 
           {/* Sidebar — 4 columns */}
           <div className="lg:col-span-4 flex flex-col gap-6">
+            {/* Ad 1 — Top of sidebar */}
+            <AdSlot position="skyscraper_left" />
+
+            {/* Ad 2 */}
+            <AdSlot position="skyscraper_right" />
+
             {/* Share Card */}
             <div className="bg-primary-light border border-white/5 rounded-2xl p-6 flex flex-col gap-4">
               <h3 className="text-sm font-black text-gray-500 uppercase tracking-widest text-center mb-2">Share With Friends</h3>
@@ -177,13 +183,7 @@ export default function GameDetailPage() {
             <Newsletter />
 
             {/* Sidebar Rectangular Ad */}
-            <AdSlot position="game_sidebar" />
-
-            {/* Skyscraper Ad 1 — stacked in sidebar */}
-            <AdSlot position="skyscraper_left" sticky />
-
-            {/* Skyscraper Ad 2 — stacked in sidebar */}
-            <AdSlot position="skyscraper_right" />
+            <AdSlot position="game_sidebar" sticky />
           </div>
         </div>
       </div>
