@@ -1,30 +1,31 @@
 "use client";
 
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 
 interface BannerAdProps {
   className?: string;
 }
 
 export default function BannerAd({ className = "" }: BannerAdProps) {
-  const showAds = process.env.NEXT_PUBLIC_SHOW_ADS === "true";
+  const adRef = useRef<HTMLModElement>(null);
+  const pushed = useRef(false);
 
   useEffect(() => {
-    if (showAds) {
+    if (adRef.current && !pushed.current) {
       try {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
+        pushed.current = true;
       } catch (e) {
         console.error("AdSense banner error:", e);
       }
     }
-  }, [showAds]);
-
-  if (!showAds) return null;
+  }, []);
 
   return (
     <div className={`w-full my-4 flex justify-center ${className}`}>
       <ins
+        ref={adRef}
         className="adsbygoogle"
         style={{ display: "block", width: "100%", minHeight: "90px" }}
         data-ad-client="ca-pub-8802060779563003"

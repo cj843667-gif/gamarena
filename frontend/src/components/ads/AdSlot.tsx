@@ -46,12 +46,11 @@ const AD_CONFIG = {
 };
 
 export default function AdSlot({ position, className = "", sticky }: AdSlotProps) {
-  const showAds = process.env.NEXT_PUBLIC_SHOW_ADS === "true";
   const adRef = useRef<HTMLModElement>(null);
   const pushed = useRef(false);
 
   useEffect(() => {
-    if (showAds && adRef.current && !pushed.current) {
+    if (adRef.current && !pushed.current) {
       try {
         // @ts-ignore
         (window.adsbygoogle = window.adsbygoogle || []).push({});
@@ -60,9 +59,8 @@ export default function AdSlot({ position, className = "", sticky }: AdSlotProps
         console.error("AdSense error:", e);
       }
     }
-  }, [showAds]);
+  }, []);
 
-  if (!showAds) return null;
 
   const config = AD_CONFIG[position];
   if (!config) return null;
