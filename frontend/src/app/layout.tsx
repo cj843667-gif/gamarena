@@ -22,6 +22,19 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+        {/* Google Analytics (gtag.js) */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-LQKDJXNYEE"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-LQKDJXNYEE');
+          `}
+        </Script>
       </head>
       <body>
         <Script
@@ -38,21 +51,6 @@ export default function RootLayout({
           `}
         </Script>
         
-        {/* Taboola Pixel Code */}
-        <Script id="taboola-pixel" strategy="afterInteractive">
-          {`
-            window._tfa = window._tfa || [];
-            window._tfa.push({notify: 'event', name: 'page_view', id: 1888730});
-            !function (t, f, a, x) {
-              if (!document.getElementById(x)) {
-                t.async = 1; t.src = a; t.id=x; f.parentNode.insertBefore(t, f);
-              }
-            }(document.createElement('script'),
-            document.getElementsByTagName('script')[0],
-            '//cdn.taboola.com/libtrc/unip/1888730/tfa.js',
-            'tb_tfa_script');
-          `}
-        </Script>
         <Providers>
           <div className="flex flex-col min-h-screen">
             <Header />
