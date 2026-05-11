@@ -22,6 +22,18 @@ export default function RootLayout({
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
+      </head>
+      <body>
+        <Providers>
+          <div className="flex flex-col min-h-screen">
+            <Header />
+            <main className="flex-grow pt-24">
+              {children}
+            </main>
+            <Footer />
+          </div>
+        </Providers>
+
         {/* Google Analytics (gtag.js) */}
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LQKDJXNYEE"
@@ -35,8 +47,8 @@ export default function RootLayout({
             gtag('config', 'G-LQKDJXNYEE');
           `}
         </Script>
-      </head>
-      <body>
+
+        {/* Google AdSense */}
         <Script
           id="adsense-init"
           strategy="afterInteractive"
@@ -50,16 +62,6 @@ export default function RootLayout({
             window.adBreak = function(o) {adsbygoogle.push(o);};
           `}
         </Script>
-        
-        <Providers>
-          <div className="flex flex-col min-h-screen">
-            <Header />
-            <main className="flex-grow pt-24">
-              {children}
-            </main>
-            <Footer />
-          </div>
-        </Providers>
       </body>
     </html>
   );
