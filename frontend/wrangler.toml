@@ -1,0 +1,7 @@
+#:schema node_modules/wrangler/config-schema.json
+name = "gamarena-frontend"
+compatibility_date = "2024-04-03"
+compatibility_flags = ["nodejs_compat"]
+
+[vars]
+NEXT_PUBLIC_API_URL = "https://your-backend-url.com/api" # Update this with your actual backend URL
