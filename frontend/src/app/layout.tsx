@@ -14,6 +14,8 @@ export const metadata: Metadata = {
   },
 };
 
+export const runtime = 'nodejs';
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -34,7 +36,7 @@ export default function RootLayout({
           </div>
         </Providers>
 
-        {/* Google Analytics (gtag.js) */}
+        {/* 
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-LQKDJXNYEE"
           strategy="afterInteractive"
@@ -48,7 +50,6 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google AdSense */}
         <Script
           id="adsense-init"
           strategy="afterInteractive"
@@ -62,6 +63,7 @@ export default function RootLayout({
             window.adBreak = function(o) {adsbygoogle.push(o);};
           `}
         </Script>
+        */}
       </body>
     </html>
   );
