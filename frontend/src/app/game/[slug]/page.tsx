@@ -12,6 +12,7 @@ import GamePlayer from "@/components/games/GamePlayer";
 import Button from "@/components/ui/Button";
 import Badge from "@/components/ui/Badge";
 import AdSlot from "@/components/ads/AdSlot";
+import SidebarAd from "@/components/ads/SidebarAd";
 import { Star, Eye, Play, Share2, ChevronRight, Quote } from "lucide-react";
 import Link from "next/link";
 import Newsletter from "@/components/Newsletter";
@@ -168,11 +169,11 @@ export default function GameDetailPage() {
 
           {/* Sidebar — 4 columns */}
           <div className="lg:col-span-4 flex flex-col gap-6">
-            {/* Ad 1 — Top of sidebar */}
-            <AdSlot position="skyscraper_left" />
+            {/* Sidebar Ad — 300x250 Rectangle */}
+            <SidebarAd variant="rectangle" />
 
-            {/* Ad 2 */}
-            <AdSlot position="skyscraper_right" />
+            {/* Sidebar Ad — 300x600 Half Page */}
+            <SidebarAd variant="halfpage" />
 
             {/* Share Card */}
             <div className="bg-primary-light border border-white/5 rounded-2xl p-6 flex flex-col gap-4">
@@ -195,8 +196,8 @@ export default function GameDetailPage() {
             
             <Newsletter />
 
-            {/* Sidebar Rectangular Ad */}
-            <AdSlot position="game_sidebar" sticky />
+            {/* Sticky Sidebar Rectangle Ad */}
+            <SidebarAd variant="rectangle" sticky />
           </div>
         </div>
       </div>

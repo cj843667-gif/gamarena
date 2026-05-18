@@ -1,8 +1,9 @@
 "use client";
 
-import { useState } from "react";
-import { Maximize2, RotateCcw, Monitor, RefreshCcw, Code2, Play, ExternalLink, ShieldCheck } from "lucide-react";
+import { useState, useEffect } from "react";
+import { Maximize2, Minimize2, RotateCcw, Monitor, RefreshCcw, Code2, Play, ExternalLink, ShieldCheck } from "lucide-react";
 import Button from "../ui/Button";
+import FullscreenLeaderboard from "../ads/FullscreenLeaderboard";
 
 interface GamePlayerProps {
   playUrl: string;
@@ -41,11 +42,29 @@ export default function GamePlayer({ playUrl, githubUrl, title, standalone }: Ga
   };
 
   const toggleFullscreen = () => {
-    const iframe = document.getElementById('game-iframe');
-    if (iframe?.requestFullscreen) {
-      iframe.requestFullscreen();
-    }
+    setIsFullscreen(prev => !prev);
   };
+
+  // Listen for ESC key to exit custom fullscreen
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      if (e.key === 'Escape' && isFullscreen) {
+        setIsFullscreen(false);
+      }
+    };
+    window.addEventListener('keydown', handleKeyDown);
+    return () => window.removeEventListener('keydown', handleKeyDown);
+  }, [isFullscreen]);
+
+  // Prevent body scroll when in fullscreen
+  useEffect(() => {
+    if (isFullscreen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+    return () => { document.body.style.overflow = ''; };
+  }, [isFullscreen]);
 
   if (!playUrl) {
     return (
@@ -101,7 +120,7 @@ export default function GamePlayer({ playUrl, githubUrl, title, standalone }: Ga
   return (
     <div className="flex flex-col gap-4">
       <div className="relative group">
-        <div className={`aspect-[16/9] w-full bg-black rounded-2xl overflow-hidden shadow-2xl border border-white/10 ${isFullscreen ? 'fixed inset-0 z-[100] rounded-none' : ''}`}>
+        <div className={`aspect-[16/9] w-full bg-black overflow-hidden shadow-2xl border border-white/10 transition-all duration-300 ${isFullscreen ? 'fixed inset-0 z-[150] rounded-none !aspect-auto' : 'rounded-2xl'}`}>
           <iframe
             id="game-iframe"
             key={key}
@@ -114,37 +133,47 @@ export default function GamePlayer({ playUrl, githubUrl, title, standalone }: Ga
           />
 
           {/* Controls Overlay (appears on hover) */}
-          {!isFullscreen && (
-            <div className="absolute bottom-4 right-4 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-              <button
-                onClick={reloadGame}
-                className="p-3 bg-black/60 backdrop-blur-md rounded-xl text-white hover:bg-accent transition-colors shadow-lg"
-                title="Reload Game"
-              >
-                <RefreshCcw size={20} />
-              </button>
-              <button
-                onClick={toggleFullscreen}
-                className="p-3 bg-black/60 backdrop-blur-md rounded-xl text-white hover:bg-accent transition-colors shadow-lg"
-                title="Fullscreen"
-              >
-                <Maximize2 size={20} />
-              </button>
+          <div className={`absolute bottom-4 right-4 flex gap-2 transition-opacity duration-300 ${isFullscreen ? 'opacity-100 bottom-28' : 'opacity-0 group-hover:opacity-100'}`}>
+            <button
+              onClick={reloadGame}
+              className="p-3 bg-black/60 backdrop-blur-md rounded-xl text-white hover:bg-accent transition-colors shadow-lg"
+              title="Reload Game"
+            >
+              <RefreshCcw size={20} />
+            </button>
+            <button
+              onClick={toggleFullscreen}
+              className="p-3 bg-black/60 backdrop-blur-md rounded-xl text-white hover:bg-accent transition-colors shadow-lg"
+              title={isFullscreen ? "Exit Fullscreen" : "Fullscreen"}
+            >
+              {isFullscreen ? <Minimize2 size={20} /> : <Maximize2 size={20} />}
+            </button>
+          </div>
+
+          {/* ESC hint in fullscreen */}
+          {isFullscreen && (
+            <div className="absolute top-4 left-1/2 -translate-x-1/2 bg-black/60 backdrop-blur-md rounded-xl px-4 py-2 text-xs font-bold text-gray-400 uppercase tracking-widest opacity-0 group-hover:opacity-100 transition-opacity">
+              Press ESC to exit
             </div>
           )}
         </div>
       </div>
 
-      <div className="flex items-center justify-between text-xs text-gray-500 font-bold uppercase tracking-widest px-2">
-        <div className="flex items-center gap-4">
-          <button onClick={reloadGame} className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-accent focus:outline-none">
-            <RefreshCcw size={14} /> RELOAD GAME
-          </button>
+      {/* Fullscreen Sticky Bottom Leaderboard Ad */}
+      <FullscreenLeaderboard visible={isFullscreen} />
+
+      {!isFullscreen && (
+        <div className="flex items-center justify-between text-xs text-gray-500 font-bold uppercase tracking-widest px-2">
+          <div className="flex items-center gap-4">
+            <button onClick={reloadGame} className="flex items-center gap-1.5 hover:text-white transition-colors cursor-pointer text-accent focus:outline-none">
+              <RefreshCcw size={14} /> RELOAD GAME
+            </button>
+          </div>
+          <div className="hidden sm:block">
+            Trouble playing? <a href={playUrl} target="_blank" className="text-accent hover:underline">Open in new tab</a>
+          </div>
         </div>
-        <div className="hidden sm:block">
-          Trouble playing? <a href={playUrl} target="_blank" className="text-accent hover:underline">Open in new tab</a>
-        </div>
-      </div>
+      )}
     </div>
   );
 }
