@@ -15,7 +15,26 @@ export default function GamePlayer({ playUrl, githubUrl, title, standalone }: Ga
   const [key, setKey] = useState(0);
   const [isFullscreen, setIsFullscreen] = useState(false);
 
-  const reloadGame = () => setKey(prev => prev + 1);
+  const reloadGame = () => {
+    // H5 Games Ads — Show an ad on game restart (natural break point)
+    if (typeof window !== 'undefined' && (window as any).adBreak) {
+      (window as any).adBreak({
+        type: 'next',
+        name: 'game-restart',
+        beforeAd: () => {
+          console.log('🎬 Restart ad starting...');
+        },
+        afterAd: () => {
+          console.log('✅ Restart ad finished, reloading game...');
+        },
+        adBreakDone: () => {
+          setKey(prev => prev + 1);
+        },
+      });
+    } else {
+      setKey(prev => prev + 1);
+    }
+  };
   
   const handleLaunch = () => {
     window.open(playUrl, '_blank', 'noopener,noreferrer');

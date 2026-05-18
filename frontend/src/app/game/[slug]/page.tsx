@@ -38,12 +38,25 @@ export default function GameDetailPage() {
       viewMutation.mutate(game._id);
     }
 
-    // Trigger H5 Interstitial Ad for Beta
+    // H5 Games Ads — Show a preroll ad when user lands on a game page
     if (typeof window !== 'undefined' && (window as any).adBreak) {
-      console.log('🎬 Triggering H5 adBreak...');
       (window as any).adBreak({
-        type: 'start',
-        name: 'game-start',
+        type: 'preroll',
+        name: 'game-preroll',
+        beforeAd: () => {
+          console.log('🎬 H5 Ad starting — pausing game...');
+          // Pause the game iframe if possible
+          const iframe = document.getElementById('game-iframe') as HTMLIFrameElement;
+          if (iframe) iframe.style.pointerEvents = 'none';
+        },
+        afterAd: () => {
+          console.log('✅ H5 Ad finished — resuming game...');
+          const iframe = document.getElementById('game-iframe') as HTMLIFrameElement;
+          if (iframe) iframe.style.pointerEvents = 'auto';
+        },
+        adBreakDone: (placementInfo: any) => {
+          console.log('📊 H5 Ad placement info:', placementInfo);
+        },
       });
     }
   }, [game?._id, slug]);

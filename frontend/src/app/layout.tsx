@@ -50,18 +50,19 @@ export default function RootLayout({
           `}
         </Script>
 
-        {/* Google AdSense */}
+        {/* Google AdSense - H5 Games Ads Beta */}
         <Script
-          id="adsense-init"
+          id="adsense-h5-games"
           strategy="afterInteractive"
           src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-8802060779563003"
           crossOrigin="anonymous"
+          data-ad-frequency-hint="30s"
         />
-        <Script id="adsense-config" strategy="afterInteractive">
+        <Script id="h5-ads-config" strategy="afterInteractive">
           {`
             window.adsbygoogle = window.adsbygoogle || [];
-            window.adConfig = function(o) {adsbygoogle.push({google_ad_modality: 'interstitial', ...o});};
-            window.adBreak = function(o) {adsbygoogle.push(o);};
+            window.adBreak = function(o) { adsbygoogle.push(o); };
+            window.adConfig = function(o) { adsbygoogle.push(o); };
           `}
         </Script>
       </body>
