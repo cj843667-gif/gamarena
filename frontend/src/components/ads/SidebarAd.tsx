@@ -55,13 +55,18 @@ export default function SidebarAd({ variant, className = "", sticky }: SidebarAd
       <ins
         ref={adRef}
         className="adsbygoogle"
-        style={{
-          display: "inline-block",
-          width: `${config.width}px`,
-          height: `${config.height}px`,
-        }}
+        style={
+          variant === "rectangle"
+            ? { display: "block" }
+            : {
+                display: "inline-block",
+                width: `${config.width}px`,
+                height: `${config.height}px`,
+              }
+        }
         data-ad-client="ca-pub-8802060779563003"
         data-ad-slot={config.slot}
+        data-ad-format={variant === "rectangle" ? "auto" : undefined}
       ></ins>
     </div>
   );
